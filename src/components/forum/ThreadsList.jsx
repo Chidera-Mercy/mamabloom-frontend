@@ -13,7 +13,7 @@ const ThreadsList = ({ activeCategory = 'all', searchQuery = '' }) => {
     const fetchThreads = async () => {
       try {
         const link = "/api/forum/get_threads"
-        const url = new URL('http://169.239.251.102:3341/~anna.kodji/backend/forum/get_threads.php');
+        const url = new URL(link);
         
         if (activeCategory && activeCategory !== 'all') {
           url.searchParams.append('category', activeCategory);
@@ -100,7 +100,7 @@ const ThreadsList = ({ activeCategory = 'all', searchQuery = '' }) => {
               {thread.profile_picture ? (
                 <img
                   // `/api/get_image/${thread.profile_picture}`
-                  src={ thread.profile_picture ? `http://169.239.251.102:3341/~anna.kodji/backend/${thread.profile_picture}` : defaultProfile }
+                  src={ thread.profile_picture ? `/api/get_image/${thread.profile_picture}` : defaultProfile }
                   alt={thread.username}
                   className="w-10 h-10 rounded-full object-cover border-2 border-[#7C9885]"
                 />
