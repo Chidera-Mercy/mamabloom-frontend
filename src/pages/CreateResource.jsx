@@ -28,7 +28,7 @@ const CreateResource = () => {
     const fetchCategories = async () => {
       try {
         const link = "/api/resources/get_categories"
-        const response = await fetch('http://169.239.251.102:3341/~anna.kodji/backend/resources/get_categories.php');
+        const response = await fetch(link);
         const data = await response.json();
         
         if (data.success) {
@@ -77,7 +77,7 @@ const CreateResource = () => {
       }
 
       const link = "/api/resources/create_resource"
-      const response = await fetch('http://169.239.251.102:3341/~anna.kodji/backend/resources/create_resource.php', {
+      const response = await fetch(link, {
         method: 'POST',
         body: formDataToSend,
       });
