@@ -14,51 +14,45 @@ const Resources = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Fetch categories
-        const link = "/api/resources/get_categories"
-        const catResponse = await fetch(link);
-        const catData = await catResponse.json();
-        if (catData.success) {
-          setCategories([{ category_id: 'all', name: 'All Categories' }, ...catData.categories]);
-        }
+  const fetchData = async () => {
+    try {
+      // Fetch categories
+      const link = "/api/resources/get_categories"
+      const catResponse = await fetch(link);
+      const catData = await catResponse.json();
+      if (catData.success) {
+        setCategories([{ category_id: 'all', name: 'All Categories' }, ...catData.categories]);
+      }
 
-        // Fetch all resources for featured section
-        const link2 = "/api/resources/get_resources"
-        const allResourcesResponse = await fetch(link2);
-        const allResourcesData = await allResourcesResponse.json();
-        if (allResourcesData.success) {
-          setFeaturedResources(allResourcesData.resources.filter(r => r.is_featured));
-        }
+      // Fetch filtered resources
+      let link3 = "/api/resources/get_resources";
+      const params = [];
+      
+      if (activeCategory !== 'all') {
+        params.push(`category=${encodeURIComponent(activeCategory)}`);
+      }
+      if (searchQuery) {
+        params.push(`search=${encodeURIComponent(searchQuery)}`);
+      }
+      
+      if (params.length > 0) {
+        link3 += `?${params.join('&')}`;
+      }
 
-        let link3 = "/api/resources/get_resources";
-        const params = [];
-        
-        if (activeCategory !== 'all') {
-          params.push(`category=${encodeURIComponent(activeCategory)}`);
-        }
-        if (searchQuery) {
-          params.push(`search=${encodeURIComponent(searchQuery)}`);
-        }
-        
-        if (params.length > 0) {
-          link3 += `?${params.join('&')}`;
-        }
-        
-        const resResponse = await fetch(link3);
-        const resData = await resResponse.json();
-        if (resData.success) {
-          setResources(resData.resources);
-        }
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        } finally {
-          setIsLoading(false);
-        }
+      const resResponse = await fetch(link3);
+      const resData = await resResponse.json();
+      if (resData.success) {
+        setResources(resData.resources);
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-    fetchData();
-  }, [activeCategory, searchQuery]);
+  fetchData();
+}, [activeCategory, searchQuery]);
 
   const handleCategoryChange = (categoryId) => {
     setActiveCategory(categoryId);
