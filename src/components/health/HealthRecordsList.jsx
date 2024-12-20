@@ -24,9 +24,7 @@ const HealthRecordsList = ({ childId, onEditClick, refresh, onDelete }) => {
   const fetchRecords = async () => {
     try {
       const link = `/api/health/get_health_records?child_id=${childId}`
-      const response = await fetch(
-        `http://169.239.251.102:3341/~anna.kodji/backend/health/get_health_records.php?child_id=${childId}`
-      );
+      const response = await fetch(link);
       const data = await response.json();
       
       if (data.success) {
@@ -53,8 +51,7 @@ const HealthRecordsList = ({ childId, onEditClick, refresh, onDelete }) => {
     setIsDeleting(recordId);
     try {
       const link = "/api/health/delete_health_record"
-      const response = await fetch(
-        'http://169.239.251.102:3341/~anna.kodji/backend/health/delete_health_record.php',
+      const response = await fetch(link,
         {
           method: 'POST',
           headers: {
