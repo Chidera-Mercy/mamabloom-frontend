@@ -11,9 +11,7 @@ const PopularTopics = () => {
     const fetchCategories = async () => {
       try {
         const link = "/api/forum/get_popular_categories"
-        const response = await fetch(
-          'http://169.239.251.102:3341/~anna.kodji/backend/forum/get_popular_categories.php'
-        );
+        const response = await fetch(link);
         const data = await response.json();
 
         if (data.success) {
