@@ -26,8 +26,7 @@ const ChildrenDashboard = () => {
         return;
       }
       const link = `/api/children/get_children?user_id=${user.id}`
-      const response = await fetch(
-        `http://169.239.251.102:3341/~anna.kodji/backend/children/get_children.php?user_id=${user.id}`,
+      const response = await fetch(link,
         {
           method: 'GET',
           headers: {
