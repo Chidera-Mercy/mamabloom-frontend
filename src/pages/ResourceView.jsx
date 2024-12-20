@@ -27,9 +27,7 @@ const ResourceView = () => {
     const fetchResource = async () => {
       try {
         const link = `/api/resources/get_resource?resource_id=${resourceId}`
-        const response = await fetch(
-          `http://169.239.251.102:3341/~anna.kodji/backend/resources/get_resource.php?resource_id=${resourceId}`
-        );
+        const response = await fetch(link);
         const data = await response.json();
 
         if (data.success) {
@@ -228,7 +226,7 @@ const ResourceView = () => {
             <div className="relative h-[400px] overflow-hidden">
               <img
                 // `/api/get_image/${resource.thumbnail}`
-                src={resource.thumbnail ? `http://169.239.251.102:3341/~anna.kodji/backend/${resource.thumbnail}` : defaultProfile}
+                src={resource.thumbnail ? `/api/get_image/${resource.thumbnail}` : defaultProfile}
                 alt={resource.title}
                 className="w-full h-full object-cover"
               />
