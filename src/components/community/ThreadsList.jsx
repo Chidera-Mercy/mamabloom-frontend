@@ -12,7 +12,7 @@ const ThreadsList = ({ category = 'all', searchQuery = '' }) => {
     const fetchThreads = async () => {
       try {
         const link = "/api/forum/get_threads"
-        const url = new URL('http://169.239.251.102:3341/~anna.kodji/backend/forum/get_threads.php');
+        const url = new URL(link);
         if (category !== 'all') {
           url.searchParams.append('category', category);
         }
