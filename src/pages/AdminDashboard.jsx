@@ -16,7 +16,10 @@ import Header from '../components/layout/Header';
 // Utility function for API calls
 export const fetchApi = async (endpoint, options = {}) => {
   try {
-    const link = `/api/get_data/${endpoint}`
+    // Ensure endpoint starts with a forward slash if not present
+    const formattedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+    const link = `/api/get_data${formattedEndpoint}`;
+
     const response = await fetch(link, {
       ...options,
       headers: {
@@ -24,12 +27,17 @@ export const fetchApi = async (endpoint, options = {}) => {
         ...options.headers
       }
     });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
     const data = await response.json();
-    if (!data.success) throw new Error(data.message);
+    if (!data.success) throw new Error(data.message || 'API request failed');
     return data;
   } catch (error) {
     console.error(`API Error: ${error.message}`);
-    toast.error(error.message);
+    toast.error(error.message || 'An error occurred');
     throw error;
   }
 };
