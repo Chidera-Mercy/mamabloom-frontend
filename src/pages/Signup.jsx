@@ -91,7 +91,7 @@ const Signup = () => {
 
     try {
       // /api/auth/signup
-      const response = await fetch('http://169.239.251.102:3341/~anna.kodji/backend/auth/signup.php', {
+      const response = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
