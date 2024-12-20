@@ -20,7 +20,7 @@ const NewThread = () => {
     const fetchCategories = async () => {
       try {
         const link = "/api/forum/get_categories"
-        const response = await fetch('http://169.239.251.102:3341/~anna.kodji/backend/forum/get_categories.php');
+        const response = await fetch(link);
         const data = await response.json();
         
         if (data.success) {
@@ -50,7 +50,7 @@ const NewThread = () => {
       const user = JSON.parse(localStorage.getItem('user'));
       const user_id = user.id;
       const link = "/api/forum/create_thread"
-      const response = await fetch('http://169.239.251.102:3341/~anna.kodji/backend/forum/create_thread.php', {
+      const response = await fetch(link, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
