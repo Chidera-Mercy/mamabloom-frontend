@@ -1,0 +1,144 @@
+{
+    "rewrites": [
+        {
+            "source": "/api/auth/signup",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/auth/signup.php"
+        },
+        {
+            "source": "/api/auth/login",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/auth/login.php"
+        },
+        {
+            "source": "/api/dashboard/get_resources",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/dashboard/get_resources.php"
+        },
+        {
+            "source": "/api/dashboard/get_recent_milestones",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/dashboard/get_recent_milestones.php"
+        },
+        {
+            "source": "/api/dashboard/get_recent_posts",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/dashboard/get_recent_posts.php"
+        },
+        {
+            "source": "/api/get_image",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend"
+        },
+        {
+            "source": "/api/children/get_children",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/children/get_children.php"
+        },
+        {
+            "source": "/api/children/add_child",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/children/add_child.php"
+        },
+        {
+            "source": "/api/children/get_child",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/children/get_child.php"
+        },
+        {
+            "source": "/api/milestones/get_milestones",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/milestones/get_milestones.php"
+        },
+        {
+            "source": "/api/milestones/delete_milestone",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/milestones/delete_milestone.php"
+        },
+        {
+            "source": "/api/milestones/add_milestone",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/milestones/add_milestone.php"
+        },
+        {
+            "source": "/api/milestones/update_milestone",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/milestones/update_milestone.php"
+        },
+        {
+            "source": "/api/health/get_health_records",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/health/get_health_records.php"
+        },
+        {
+            "source": "/api/health/add_health_record",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/health/add_health_record.php"
+        },
+        {
+            "source": "/api/health/delete_health_record",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/health/delete_health_record.php"
+        },
+        {
+            "source": "/api/forum/get_categories",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/forum/get_categories.php"
+        },
+        {
+            "source": "/api/forum/get_threads",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/forum/get_threads.php"
+        },
+        {
+            "source": "/api/forum/get_popular_categories",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/forum/get_popular_categories.php"
+        },
+        {
+            "source": "/api/children/delete_child",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/children/delete_child.php"
+        },
+        {
+            "source": "/api/health/update_health_record",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/health/update_health_record.php"
+        },
+        {
+            "source": "/api/forum/get_thread",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/forum/get_thread.php"
+        },
+        {
+            "source": "/api/forum/create_thread",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/forum/create_thread.php"
+        },
+        {
+            "source": "/api/forum/create_reply",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/forum/create_reply.php"
+        },
+        {
+            "source": "/api/admin/get_stats",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/admin/get_stats.php"
+        },
+        {
+            "source": "/api/get_data",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend"
+        },
+        {
+            "source": "/api/children/update_child",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/children/update_child.php"
+        },
+        {
+            "source": "/api/resources/get_categories",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/resources/get_categories.php"
+        },
+        {
+            "source": "/api/resources/create_resource",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/resources/create_resource.php"
+        },
+        {
+            "source": "/api/dashboard/get_resources",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/dashboard/get_resources.php"
+        },
+        {
+            "source": "/api/users/get_profile",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/users/get_profile.php"
+        },
+        {
+            "source": "/api/users/update_profile",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/users/update_profile.php"
+        },
+        {
+            "source": "/api/resources/get_resources",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/resources/get_resources.php"
+        },
+        {
+            "source": "/api/resources/get_resource",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/resources/get_resource.php"
+        },
+        {
+            "source": "/api/forum/toggle_like",
+            "destination": "http://169.239.251.102:3341/~anna.kodji/backend/forum/toggle_like.php"
+        }
+    ]
+}
