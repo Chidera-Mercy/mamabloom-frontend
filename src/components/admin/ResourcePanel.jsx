@@ -147,7 +147,7 @@ export const ResourcesPanel = () => {
                     {resource.thumbnail && (
                       <div className="h-48 rounded-t-lg bg-gray-200 overflow-hidden">
                         <img 
-                          src={`http://169.239.251.102:3341/~anna.kodji/backend/${resource.thumbnail}`} 
+                          src={`/api/get_image/${resource.thumbnail}`} 
                           alt={resource.title}
                           className="w-full h-full object-cover"
                         />
