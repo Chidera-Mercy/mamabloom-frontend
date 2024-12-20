@@ -85,7 +85,7 @@ const EditChildModal = ({ child, onClose, onSuccess }) => {
 
       const link = "/api/children/update_child"
       const response = await fetch(
-        'http://169.239.251.102:3341/~anna.kodji/backend/children/update_child.php',
+        link,
         {
           method: 'POST',
           body: formDataToSend,
@@ -133,7 +133,7 @@ const EditChildModal = ({ child, onClose, onSuccess }) => {
                 {formData.profile_picture || child.profile_picture ? (
                   <img
                     // `/api/get_image/${child.profile_picture}`
-                    src={formData.profile_picture_reader || `http://169.239.251.102:3341/~anna.kodji/backend/${child.profile_picture}`}
+                    src={formData.profile_picture_reader || `/api/get_image/${child.profile_picture}`}
                     alt={child.name}
                     className="w-full h-full object-cover"
                   />
