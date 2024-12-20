@@ -69,7 +69,7 @@ const Header = () => {
                 </div>
                 <img
                   // `/api/get_image/${user.profileImage}`
-                  src={user.profileImage ? `/api/get_image/upload/profiles/${user.profileImage}` : defaultProfile}
+                  src={user.profileImage ? `/api/get_image/${user.profileImage}` : defaultProfile}
                   alt={user?.username || 'Profile'}
                   className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border-2 border-[#7C9885] transition-transform group-hover:scale-105"
                 />
