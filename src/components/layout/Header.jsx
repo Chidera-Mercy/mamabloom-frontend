@@ -10,6 +10,7 @@ const Header = () => {
   const menuRef = useRef();
   const navigate = useNavigate();
   const { user, logout } = useAuth();
+  {console.log(user.profileImage)}
   
   useEffect(() => {
     const handleClickOutside = (event) => {
