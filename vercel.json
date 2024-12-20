@@ -101,8 +101,8 @@
             "destination": "http://169.239.251.102:3341/~anna.kodji/backend/admin/get_stats.php"
         },
         {
-            "source": "/api/get_data",
-            "destination": "http://169.239.251.102:3341/~anna.kodji/backend"
+          "source": "/api/get_data/:path*",
+          "destination": "http://169.239.251.102:3341/~anna.kodji/backend/:path*"
         },
         {
             "source": "/api/children/update_child",
