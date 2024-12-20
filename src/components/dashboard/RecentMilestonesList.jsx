@@ -27,8 +27,7 @@ const RecentMilestonesList = ({ limit }) => {
     const fetchRecentMilestones = async () => {
       try {
         const link = `/api/dashboard/get_recent_milestones?limit=${limit}`
-        const response = await fetch(
-          `http://169.239.251.102:3341/~anna.kodji/backend/dashboard/get_recent_milestones.php?limit=${limit}`,
+        const response = await fetch(link,
           {
             method: 'POST',
             headers: {
