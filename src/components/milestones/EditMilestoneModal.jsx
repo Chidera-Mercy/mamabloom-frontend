@@ -92,8 +92,7 @@ const EditMilestoneModal = ({ milestone, onClose, onSuccess }) => {
     
     try {
       const link = "/api/milestones/update_milestone"
-      const response = await fetch(
-        'http://169.239.251.102:3341/~anna.kodji/backend/milestones/update_milestone.php',
+      const response = await fetch(link,
         {
           method: 'POST',
           headers: {
