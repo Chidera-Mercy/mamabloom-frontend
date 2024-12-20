@@ -22,7 +22,7 @@ const Community = () => {
     const fetchCategories = async () => {
       try {
         const link = "/api/forum/get_categories"
-        const response = await fetch('http://169.239.251.102:3341/~anna.kodji/backend/forum/get_categories.php');
+        const response = await fetch(link);
         const data = await response.json();
         console.log(data);
         
