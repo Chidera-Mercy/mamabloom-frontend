@@ -75,8 +75,7 @@ const AddHealthRecordModal = ({ childId, onClose, onSuccess }) => {
     setIsSubmitting(true);
     try {
       const link = "/api/health/add_health_record"
-      const response = await fetch(
-        'http://169.239.251.102:3341/~anna.kodji/backend/health/add_health_record.php',
+      const response = await fetch(link,
         {
           method: 'POST',
           headers: {
