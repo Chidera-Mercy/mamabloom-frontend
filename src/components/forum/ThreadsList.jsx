@@ -10,36 +10,38 @@ const ThreadsList = ({ activeCategory = 'all', searchQuery = '' }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchThreads = async () => {
-      try {
-        const link = "/api/forum/get_threads"
-        const url = new URL(link);
-        
-        if (activeCategory && activeCategory !== 'all') {
-          url.searchParams.append('category', activeCategory);
-        }
-        
-        if (searchQuery) {
-          url.searchParams.append('search', searchQuery);
-        }
-
-        const response = await fetch(url);
-        const data = await response.json();
-
-        if (data.success) {
-          setThreads(data.threads);
-        } else {
-          setError(data.message);
-        }
-      } catch (error) {
-        setError('Error fetching threads');
-      } finally {
-        setIsLoading(false);
+  const fetchThreads = async () => {
+    try {
+      let link = "/api/forum/get_threads";
+      const params = [];
+      
+      if (activeCategory && activeCategory !== 'all') {
+        params.push(`category=${encodeURIComponent(activeCategory)}`);
       }
-    };
+      
+      if (searchQuery) {
+        params.push(`search=${encodeURIComponent(searchQuery)}`);
+      }
+      
+      if (params.length > 0) {
+        link += `?${params.join('&')}`;
+      }
 
-    fetchThreads();
-  }, [activeCategory, searchQuery]);
+      const response = await fetch(link);
+      const data = await response.json();
+      if (data.success) {
+        setThreads(data.threads);
+      } else {
+        setError(data.message);
+      }
+    } catch (error) {
+      setError('Error fetching threads');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  fetchThreads();
+}, [activeCategory, searchQuery]);
 
   // Loading skeleton
   if (isLoading) {
