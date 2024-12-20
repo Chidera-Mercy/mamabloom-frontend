@@ -13,9 +13,7 @@ const RecentForumPosts = ({ limit }) => {
     const fetchRecentPosts = async () => {
       try {
         const link = `/api/dashboard/get_recent_posts?limit=${limit}`
-        const response = await fetch(
-          `http://169.239.251.102:3341/~anna.kodji/backend/dashboard/get_recent_posts.php?limit=${limit}`
-        );
+        const response = await fetch(link);
         const data = await response.json();
 
         if (data.success) {
@@ -73,7 +71,7 @@ const RecentForumPosts = ({ limit }) => {
             <div className="flex-shrink-0">
               <img
                 // `/api/get_image/${post.author_image}`
-                src={ post.author_image ? `http://169.239.251.102:3341/~anna.kodji/backend/${post.author_image}` : defaultProfile }
+                src={ post.author_image ? `/api/get_image/${post.author_image}` : defaultProfile }
                 alt={post.author_name}
                 className="w-10 h-10 rounded-full object-cover"
               />
