@@ -18,7 +18,7 @@ const Resources = () => {
       try {
         // Fetch categories
         const link = "/api/resources/get_categories"
-        const catResponse = await fetch('http://169.239.251.102:3341/~anna.kodji/backend/resources/get_categories.php');
+        const catResponse = await fetch(link);
         const catData = await catResponse.json();
         if (catData.success) {
           setCategories([{ category_id: 'all', name: 'All Categories' }, ...catData.categories]);
@@ -26,7 +26,7 @@ const Resources = () => {
 
         // Fetch all resources for featured section
         const link2 = "/api/resources/get_resources"
-        const allResourcesResponse = await fetch('http://169.239.251.102:3341/~anna.kodji/backend/resources/get_resources.php');
+        const allResourcesResponse = await fetch(link2);
         const allResourcesData = await allResourcesResponse.json();
         if (allResourcesData.success) {
           setFeaturedResources(allResourcesData.resources.filter(r => r.is_featured));
@@ -34,7 +34,7 @@ const Resources = () => {
 
         // Fetch filtered resources
         const link3 = "/api/resources/get_resources"
-        const resourcesUrl = new URL('http://169.239.251.102:3341/~anna.kodji/backend/resources/get_resources.php');
+        const resourcesUrl = new URL(link3);
         if (activeCategory !== 'all') {
           resourcesUrl.searchParams.append('category', activeCategory);
         }
