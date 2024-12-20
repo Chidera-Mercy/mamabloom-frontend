@@ -42,7 +42,7 @@ const Profile = () => {
       try {
         setLoading(true);
         const link = `/api/users/get_profile?user_id=${user.id}`
-        const response = await fetch(`http://169.239.251.102:3341/~anna.kodji/backend/users/get_profile.php?user_id=${user.id}`);
+        const response = await fetch(link);
         const data = await response.json();
         
         if (data.success) {
@@ -55,7 +55,7 @@ const Profile = () => {
           });
           // `/api/get_image/${data.profile.profile_picture_url}`
           setPreviewUrl(data.profile.profile_picture_url ? 
-            `http://169.239.251.102:3341/~anna.kodji/backend/${data.profile.profile_picture_url}` : 
+            `/api/get_image/${data.profile.profile_picture_url}` : 
             null
           );
         } else {
@@ -97,7 +97,7 @@ const Profile = () => {
     try {
       setLoading(true);
       const link = "/api/users/update_profile"
-      const response = await fetch("http://169.239.251.102:3341/~anna.kodji/backend/users/update_profile.php", {
+      const response = await fetch(link, {
         method: 'POST',
         body: formDataToSend
       });
