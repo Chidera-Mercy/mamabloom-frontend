@@ -16,8 +16,8 @@ import Header from '../components/layout/Header';
 // Utility function for API calls
 export const fetchApi = async (endpoint, options = {}) => {
   try {
-    const link = "/api/get_data"
-    const response = await fetch(`http://169.239.251.102:3341/~anna.kodji/backend/${endpoint}`, {
+    const link = `/api/get_data/${endpoint}`
+    const response = await fetch(link, {
       ...options,
       headers: {
         'Content-Type': 'application/json',
