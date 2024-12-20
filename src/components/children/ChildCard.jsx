@@ -42,7 +42,7 @@ const ChildCard = ({ child, onDelete }) => {
     try {
       setIsDeleting(true);
       const link = "/api/children/delete_child"
-      const response = await fetch('http://169.239.251.102:3341/~anna.kodji/backend/children/delete_child.php', {
+      const response = await fetch(link, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ const ChildCard = ({ child, onDelete }) => {
           {child.profile_picture ? (
             <img
               // `/api/get_image/${child.profile_picture}`
-              src={`http://169.239.251.102:3341/~anna.kodji/backend/${child.profile_picture}`}
+              src={`/api/get_image/${child.profile_picture}`}
               alt={child.name}
               className="w-20 h-20 rounded-xl object-cover border-2 border-[#E8D8D0] group-hover:border-[#7C9885] transition-colors"
               onError={(e) => {
