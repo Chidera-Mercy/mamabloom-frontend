@@ -23,8 +23,7 @@ const EditHealthRecordModal = ({ record, onClose, onSuccess }) => {
     
     try {
       const link = "/api/health/update_health_record"
-      const response = await fetch(
-        'http://169.239.251.102:3341/~anna.kodji/backend/health/update_health_record.php',
+      const response = await fetch(link,
         {
           method: 'POST',
           headers: {
