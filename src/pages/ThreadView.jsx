@@ -24,7 +24,7 @@ const ThreadView = () => {
       try {
         // `/api/forum/get_thread?thread_id=${threadId}&user_id=${user?.id || 0}`
         const response = await fetch(
-          `http://169.239.251.102:3341/~anna.kodji/backend/forum/get_thread.php?thread_id=${threadId}&user_id=${user?.id || 0}`
+          `/api/forum/get_thread?thread_id=${threadId}&user_id=${user?.id || 0}`
         );
         const data = await response.json();
 
@@ -53,7 +53,7 @@ const ThreadView = () => {
 
     try {
       const link = "/api/forum/create_reply"
-      const response = await fetch('http://169.239.251.102:3341/~anna.kodji/backend/forum/create_reply.php', {
+      const response = await fetch(link, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,8 +70,8 @@ const ThreadView = () => {
       if (data.success) {
         setReplyContent('');
         // Refresh replies
-        const link2 = "/api/forum/get_thread"
-        const updatedThread = await fetch(`http://169.239.251.102:3341/~anna.kodji/backend/forum/get_thread.php?thread_id=${threadId}`);
+        const link2 = `/api/forum/get_thread?thread_id=${threadId}`
+        const updatedThread = await fetch(link2);
         const updatedData = await updatedThread.json();
         if (updatedData.success) {
           setReplies(updatedData.replies || []);
@@ -92,7 +92,7 @@ const ThreadView = () => {
 
     try {
       const link = "/api/forum/toggle_like"
-      const response = await fetch('http://169.239.251.102:3341/~anna.kodji/backend/forum/toggle_like.php', {
+      const response = await fetch(link, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -147,7 +147,7 @@ const ThreadView = () => {
               {thread.profile_picture ? (
                 <img
                   // `/api/get_image/${thread.profile_picture}` 
-                  src={thread.profile_picture ? `http://169.239.251.102:3341/~anna.kodji/backend/${thread.profile_picture}` : defaultProfile}
+                  src={thread.profile_picture ? `/api/get_image/${thread.profile_picture}` : defaultProfile}
                   alt=""
                   className="w-12 h-12 rounded-full object-cover"
                 />
@@ -242,7 +242,7 @@ const ThreadView = () => {
                   {reply.profile_picture ? (
                     <img
                       // `/api/get_image/${reply.profile_picture}`
-                      src={reply.profile_picture ? `http://169.239.251.102:3341/~anna.kodji/backend/${reply.profile_picture}` : defaultProfile}
+                      src={reply.profile_picture ? `/api/get_image/${reply.profile_picture}` : defaultProfile}
                       alt=""
                       className="w-10 h-10 rounded-full object-cover"
                     />
