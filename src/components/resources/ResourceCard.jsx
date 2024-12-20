@@ -36,7 +36,7 @@ export const ResourceCard = ({ resource }) => {
         {resource.thumbnail ? (
           <img
             // `/api/get_image/${resource.thumbnail}`
-            src={resource.thumbnail ? `http://169.239.251.102:3341/~anna.kodji/backend/${resource.thumbnail}` : defaultProfile}
+            src={resource.thumbnail ? `/api/get_image/${resource.thumbnail}` : defaultProfile}
             alt={resource.title}
             className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300"
           />
@@ -94,7 +94,7 @@ export const FeaturedResourceCard = ({ resource }) => (
     {resource.thumbnail ? (
       <img
         // `/api/get_image/${resource.thumbnail}`
-        src={resource.thumbnail ? `http://169.239.251.102:3341/~anna.kodji/backend/${resource.thumbnail}` : defaultProfile}
+        src={resource.thumbnail ? `/api/get_image/${resource.thumbnail}` : defaultProfile}
         alt={resource.title}
         className="w-full h-72 object-cover transform group-hover:scale-105 transition-transform duration-300"
       />
