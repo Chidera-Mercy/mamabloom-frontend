@@ -19,7 +19,7 @@ const Dashboard = () => {
     const fetchFeaturedResources = async () => {
       try {
         const link = "/api/dashboard/get_resources"
-        const response = await fetch('http://169.239.251.102:3341/~anna.kodji/backend/dashboard/get_resources.php');
+        const response = await fetch(link);
         const data = await response.json();
         
         if (data.success) {
