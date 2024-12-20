@@ -46,9 +46,7 @@ const ChildDetail = () => {
       }
 
       const link = `/api/children/get_child?child_id=${childId}&user_id=${user.id}`
-      const response = await fetch(
-        `http://169.239.251.102:3341/~anna.kodji/backend/children/get_child.php?child_id=${childId}&user_id=${user.id}`
-      );
+      const response = await fetch(link);
       const data = await response.json();
 
       if (data.success) {
@@ -153,7 +151,7 @@ const ChildDetail = () => {
                   {child.profile_picture ? (
                     <img
                       // `/api/get_image/${child.profile_picture}`
-                      src={`http://169.239.251.102:3341/~anna.kodji/backend/${child.profile_picture}`}
+                      src={`/api/get_image/${child.profile_picture}`}
                       alt={child.name}
                       className="w-full h-full object-cover"
                     />
