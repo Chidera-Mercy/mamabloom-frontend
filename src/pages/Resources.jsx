@@ -32,27 +32,30 @@ const Resources = () => {
           setFeaturedResources(allResourcesData.resources.filter(r => r.is_featured));
         }
 
-        // Fetch filtered resources
-        const link3 = "/api/resources/get_resources"
-        const resourcesUrl = new URL(link3);
+        let link3 = "/api/resources/get_resources";
+        const params = [];
+        
         if (activeCategory !== 'all') {
-          resourcesUrl.searchParams.append('category', activeCategory);
+          params.push(`category=${encodeURIComponent(activeCategory)}`);
         }
         if (searchQuery) {
-          resourcesUrl.searchParams.append('search', searchQuery);
+          params.push(`search=${encodeURIComponent(searchQuery)}`);
         }
-
-        const resResponse = await fetch(resourcesUrl);
+        
+        if (params.length > 0) {
+          link3 += `?${params.join('&')}`;
+        }
+        
+        const resResponse = await fetch(link3);
         const resData = await resResponse.json();
         if (resData.success) {
           setResources(resData.resources);
         }
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        } finally {
+          setIsLoading(false);
+        }
 
     fetchData();
   }, [activeCategory, searchQuery]);
