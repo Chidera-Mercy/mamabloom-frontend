@@ -21,8 +21,8 @@
             "destination": "http://169.239.251.102:3341/~anna.kodji/backend/dashboard/get_recent_posts.php"
         },
         {
-            "source": "/api/get_image",
-            "destination": "http://169.239.251.102:3341/~anna.kodji/backend"
+          "source": "/api/get_image/:path*",
+          "destination": "http://169.239.251.102:3341/~anna.kodji/backend/:path*"
         },
         {
             "source": "/api/children/get_children",
