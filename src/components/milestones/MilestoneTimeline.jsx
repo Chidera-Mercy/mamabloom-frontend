@@ -28,8 +28,7 @@ const MilestoneTimeline = ({ childId, refresh, onEditClick, onDelete }) => {
   const fetchMilestones = async () => {
     try {
       const link = `/api/milestones/get_milestones?child_id=${childId}`
-      const response = await fetch(
-        `http://169.239.251.102:3341/~anna.kodji/backend/milestones/get_milestones.php?child_id=${childId}`,
+      const response = await fetch(link,
         {
           method: 'GET',
           headers: {
@@ -61,8 +60,7 @@ const MilestoneTimeline = ({ childId, refresh, onEditClick, onDelete }) => {
     setIsDeleting(milestoneId);
     try {
       const link = "/api/milestones/delete_milestone"
-      const response = await fetch(
-        `http://169.239.251.102:3341/~anna.kodji/backend/milestones/delete_milestone.php`,
+      const response = await fetch(link,
         {
           method: 'POST',
           headers: {
