@@ -24,6 +24,14 @@ const Resources = () => {
         setCategories([{ category_id: 'all', name: 'All Categories' }, ...catData.categories]);
       }
 
+      // Fetch all resources for featured section
+      const link2 = "/api/resources/get_resources"
+      const allResourcesResponse = await fetch(link2);
+      const allResourcesData = await allResourcesResponse.json();
+      if (allResourcesData.success) {
+        setFeaturedResources(allResourcesData.resources.filter(r => r.is_featured));
+      }
+
       // Fetch filtered resources
       let link3 = "/api/resources/get_resources";
       const params = [];
